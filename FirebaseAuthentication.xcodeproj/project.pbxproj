@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		603B4DF62D08A0AB00476315 /* CapsuleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603B4DF52D08A0AB00476315 /* CapsuleButtonStyle.swift */; };
+		603B4DF82D08A11A00476315 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603B4DF72D08A11A00476315 /* CreateAccountView.swift */; };
 		60815D632D0347A4006ADA9E /* FirebaseAuthenticationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60815D622D0347A4006ADA9E /* FirebaseAuthenticationApp.swift */; };
 		60815D652D0347A4006ADA9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60815D642D0347A4006ADA9E /* ContentView.swift */; };
 		60815D672D0347A6006ADA9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60815D662D0347A6006ADA9E /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		603B4DF52D08A0AB00476315 /* CapsuleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButtonStyle.swift; sourceTree = "<group>"; };
+		603B4DF72D08A11A00476315 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		60815D5F2D0347A4006ADA9E /* FirebaseAuthentication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseAuthentication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60815D622D0347A4006ADA9E /* FirebaseAuthenticationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationApp.swift; sourceTree = "<group>"; };
 		60815D642D0347A4006ADA9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		603B4DF42D08A08D00476315 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				603B4DF52D08A0AB00476315 /* CapsuleButtonStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		60815D562D0347A3006ADA9E = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +98,7 @@
 			children = (
 				60815D622D0347A4006ADA9E /* FirebaseAuthenticationApp.swift */,
 				60815D642D0347A4006ADA9E /* ContentView.swift */,
+				603B4DF72D08A11A00476315 /* CreateAccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +125,7 @@
 		60815D742D034857006ADA9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				603B4DF42D08A08D00476315 /* Styles */,
 				60815D7A2D03496E006ADA9E /* LoginView.swift */,
 				60815D7C2D03571A006ADA9E /* InputView.swift */,
 			);
@@ -211,6 +225,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603B4DF82D08A11A00476315 /* CreateAccountView.swift in Sources */,
+				603B4DF62D08A0AB00476315 /* CapsuleButtonStyle.swift in Sources */,
 				60815D7B2D03496E006ADA9E /* LoginView.swift in Sources */,
 				60815D7D2D03571A006ADA9E /* InputView.swift in Sources */,
 				60815D652D0347A4006ADA9E /* ContentView.swift in Sources */,

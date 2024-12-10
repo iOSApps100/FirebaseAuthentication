@@ -1,18 +1,23 @@
-//
-//  CapsuleButtonStyle.swift
-//  FirebaseAuthentication
-//
-//  Created by Vivek  Garg on 10/12/24.
-//
 
 import SwiftUI
 
-struct CapsuleButtonStyle: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+// you can use struct to do make custom/reusable button but here we will use modifier.
+struct CapsuleButtonStyle: ButtonStyle {
+    var bgColor: Color = .teal
+    var textColor: Color = .white
+    var hasBorder: Bool = false
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundStyle(textColor)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Capsule().fill(bgColor))
+            .scaleEffect(configuration.isPressed ? 0.95 : 1 )
+            .overlay {
+                hasBorder ? Capsule().stroke(.gray, lineWidth: 1) : nil
+            }
     }
 }
 
-#Preview {
-    CapsuleButtonStyle()
-}
+

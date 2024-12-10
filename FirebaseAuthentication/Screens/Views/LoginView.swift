@@ -9,13 +9,9 @@ struct LoginView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     // logo
-                    Image("login_image")
-                        .resizable()
-                        .scaledToFit()
+                    logo
                     //title
-                    Text("Let's Connect With US!")
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                    titleView
                     
                     Spacer().frame(height: 12)
                     
@@ -25,77 +21,14 @@ struct LoginView: View {
                     
                     
                     // forgot button
-                    HStack {
-                        Spacer()
-                        Button {
-                            
-                        } label: {
-                            Text("Forgot Password?")
-                                .foregroundStyle(.gray)
-                                .font(.subheadline)
-                                .fontWeight(.medium)
-                        }
-                    }
-                    
+                    forgotButton
                     // login button
+                    loginButton
                     
-                    Button {
-                        
-                    } label: {
-                        Text("Login")
-                    }
-                    .buttonStyle(CapsuleButtonStyle())
                     
                     Spacer()
                     // bottom view or
-                    HStack(spacing: 16) {
-                        line
-                        
-                        Text("or")
-                            .fontWeight(.semibold)
-                        
-                        line
-                    }
-                    .foregroundStyle(.gray)
-                    
-                    // apple
-                    
-                    Button {
-                        
-                    } label: {
-                        // use label to make text with image
-                        Label("Sign up with Apple", systemImage: "apple.logo")
-                    }
-                    .buttonStyle(CapsuleButtonStyle(bgColor: .black))
-                    
-                    
-                    // google
-                    Button {
-                        
-                    } label: {
-                        HStack {
-                            Image("google")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                            Text("Sign up with Google")
-                        }
-                    }
-                    .buttonStyle(CapsuleButtonStyle(bgColor: .clear, textColor: .black, hasBorder: true))
-                    
-                    
-                    // footer
-                    NavigationLink {
-                        // When using navigationLink you need to embed it in navigationStack then it will work. Later we will see better approach.
-                        
-                    } label: {
-                        HStack {
-                            Text("Don't have an account?")
-                                .foregroundStyle(.black)
-                            Text("Sign Up")
-                                .foregroundStyle(.teal)
-                        }
-                    }
-                    .fontWeight(.medium)
+                    bottomView
                     
                 }
             }
@@ -110,29 +43,104 @@ struct LoginView: View {
         VStack { Divider().frame(height: 1)}
         }
     
+    private var logo: some View {
+        Image("login_image")
+            .resizable()
+            .scaledToFit()
+    }
+    
+    private var titleView: some View {
+        Text("Let's Connect With US!")
+            .font(.title2)
+            .fontWeight(.semibold)
+    }
+    
+    private var forgotButton: some View {
+        HStack {
+            Spacer()
+            Button {
+                
+            } label: {
+                Text("Forgot Password?")
+                    .foregroundStyle(.gray)
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+            }
+        }
+    }
+    
+    private var loginButton: some View {
+        Button {
+            
+        } label: {
+            Text("Login")
+        }
+        .buttonStyle(CapsuleButtonStyle())
+    }
+    
+    private var lineorView: some View {
+        HStack(spacing: 16) {
+            line
+            
+            Text("or")
+                .fontWeight(.semibold)
+            
+            line
+        }
+        .foregroundStyle(.gray)
+    }
+    
+    private var bottomView: some View {
+        VStack (spacing: 16) {
+            lineorView
+            appleButton
+            googleButton
+            fotterView
+        }
+    }
+    
+    private var appleButton: some View {
+        Button {
+            
+        } label: {
+            // use label to make text with image
+            Label("Sign up with Apple", systemImage: "apple.logo")
+        }
+        .buttonStyle(CapsuleButtonStyle(bgColor: .black))
+    }
+    
+    private var googleButton: some View {
+        Button {
+            
+        } label: {
+            HStack {
+                Image("google")
+                    .resizable()
+                    .frame(width: 15, height: 15)
+                Text("Sign up with Google")
+            }
+        }
+        .buttonStyle(CapsuleButtonStyle(bgColor: .clear, textColor: .black, hasBorder: true))
+    }
+    
+    private var fotterView: some View {
+        NavigationLink {
+            // When using navigationLink you need to embed it in navigationStack then it will work. Later we will see better approach.
+            CreateAccountView()
+        } label: {
+            HStack {
+                Text("Don't have an account?")
+                    .foregroundStyle(.black)
+                Text("Sign Up")
+                    .foregroundStyle(.teal)
+            }
+        }
+        .fontWeight(.medium)
+    }
 }
 
 #Preview {
     LoginView()
 }
 
-// you can use struct to do make custom/reusable button but here we will use modifier.
-struct CapsuleButtonStyle: ButtonStyle {
-    var bgColor: Color = .teal
-    var textColor: Color = .white
-    var hasBorder: Bool = false
-    
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .foregroundStyle(textColor)
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Capsule().fill(bgColor))
-            .scaleEffect(configuration.isPressed ? 0.95 : 1 )
-            .overlay {
-                hasBorder ? Capsule().stroke(.gray, lineWidth: 1) : nil
-            }
-    }
-    
-    
-}
+
