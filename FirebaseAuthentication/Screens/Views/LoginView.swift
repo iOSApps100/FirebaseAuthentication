@@ -5,89 +5,105 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     var body: some View {
-        ScrollView {
-            VStack(spacing: 16) {
-                // logo
-                Image("login_image")
-                    .resizable()
-                    .scaledToFit()
-                //title
-                Text("Let's Connect With US!")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
-                Spacer().frame(height: 12)
-                
-                // textfields
-                InputView(placeholder: "Email or phone number", text: $email)
-                InputView(placeholder: "Password", isSecureField: true, text: $password)
-                
-                
-                // forgot button
-                HStack {
-                    Spacer()
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 16) {
+                    // logo
+                    Image("login_image")
+                        .resizable()
+                        .scaledToFit()
+                    //title
+                    Text("Let's Connect With US!")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    
+                    Spacer().frame(height: 12)
+                    
+                    // textfields
+                    InputView(placeholder: "Email or phone number", text: $email)
+                    InputView(placeholder: "Password", isSecureField: true, text: $password)
+                    
+                    
+                    // forgot button
+                    HStack {
+                        Spacer()
+                        Button {
+                            
+                        } label: {
+                            Text("Forgot Password?")
+                                .foregroundStyle(.gray)
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                        }
+                    }
+                    
+                    // login button
+                    
                     Button {
                         
                     } label: {
-                        Text("Forgot Password?")
-                            .foregroundStyle(.gray)
-                            .font(.subheadline)
-                            .fontWeight(.medium)
+                        Text("Login")
                     }
-                }
-                
-                // login button
-                
-                Button {
+                    .buttonStyle(CapsuleButtonStyle())
                     
-                } label: {
-                    Text("Login")
-                }
-                .buttonStyle(CapsuleButtonStyle())
-                
-                
-                // bottom view or
-                HStack(spacing: 16) {
-                    line
-                    
-                    Text("or")
-                        .fontWeight(.semibold)
-                    
-                    line
-                }
-                .foregroundStyle(.gray)
-                
-                // apple
-                
-                Button {
-                    
-                } label: {
-                    // use label to make text with image
-                    Label("Sign up with Apple", systemImage: "apple.logo")
-                }
-                .buttonStyle(CapsuleButtonStyle(bgColor: .black))
-
-                
-                // google
-                Button {
-                    
-                } label: {
-                    HStack {
-                        Image("google")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                        Text("Sign up with Google")
+                    Spacer()
+                    // bottom view or
+                    HStack(spacing: 16) {
+                        line
+                        
+                        Text("or")
+                            .fontWeight(.semibold)
+                        
+                        line
                     }
+                    .foregroundStyle(.gray)
+                    
+                    // apple
+                    
+                    Button {
+                        
+                    } label: {
+                        // use label to make text with image
+                        Label("Sign up with Apple", systemImage: "apple.logo")
+                    }
+                    .buttonStyle(CapsuleButtonStyle(bgColor: .black))
+                    
+                    
+                    // google
+                    Button {
+                        
+                    } label: {
+                        HStack {
+                            Image("google")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                            Text("Sign up with Google")
+                        }
+                    }
+                    .buttonStyle(CapsuleButtonStyle(bgColor: .clear, textColor: .black, hasBorder: true))
+                    
+                    
+                    // footer
+                    NavigationLink {
+                        // When using navigationLink you need to embed it in navigationStack then it will work. Later we will see better approach.
+                        
+                    } label: {
+                        HStack {
+                            Text("Don't have an account?")
+                                .foregroundStyle(.black)
+                            Text("Sign Up")
+                                .foregroundStyle(.teal)
+                        }
+                    }
+                    .fontWeight(.medium)
+                    
                 }
-                .buttonStyle(CapsuleButtonStyle(bgColor: .clear, textColor: .black, hasBorder: true))
-
-                
-                // footer
             }
+            .ignoresSafeArea()
+            .padding(.horizontal)// will give default 16 padding from both the ends.
+            .padding(.vertical, 8)// will give 8 padding form both the vertical ends.
+            
         }
-        .ignoresSafeArea()
-        .padding(.horizontal)// will give default 16 padding from both the ends.
-        .padding(.vertical, 8)// will give 8 padding form both the vertical ends.
     }
     
     private var line: some View {
