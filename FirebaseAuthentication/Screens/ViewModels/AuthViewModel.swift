@@ -1,8 +1,38 @@
-//
-//  AuthViewModel.swift
-//  FirebaseAuthentication
-//
-//  Created by Vivek  Garg on 12/12/24.
-//
-
 import Foundation
+import FirebaseAuth // Auth
+import FirebaseFirestore // storage
+
+@MainActor // it is replacement of DispatchQueue.main.async from UIKit to made the task in main Queue
+final class AuthViewModel: ObservableObject {
+    
+    @Published var userSession: FirebaseAuth.User? // Firebase ka user
+    @Published var currentUser: User? // apna wala user
+    @Published var isError: Bool = false
+    private let auth = Auth.auth()
+    private let firestore = Firestore.firestore()
+    
+    init() {
+        
+    }
+    
+    func createUser(email: String, fullName: String, password: String) async {
+        do {
+            // See for auth we are provided with email and password but we need to add extra information like fullName we will store this in Database check Firebase for reference.
+            let authResult = try await auth.createUser(withEmail: email, password: password)
+            await storeUserInFirestore(uid: authResult.user.uid, email: email, fullName: fullName)
+        } catch {
+            isError = true
+        }
+    }
+    
+    func storeUserInFirestore(uid: String, email: String, fullName: String) async {
+        
+        let user = User(uid: uid, email: email, fullName: fullName)
+        do {
+            try firestore.collection("users").document(uid).setData(from: user)
+        } catch {
+            isError = true
+        }
+        
+    }
+}

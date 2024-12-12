@@ -16,6 +16,12 @@
 		60815D792D0348E4006ADA9E /* LoginAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60815D782D0348E4006ADA9E /* LoginAssets.xcassets */; };
 		60815D7B2D03496E006ADA9E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60815D7A2D03496E006ADA9E /* LoginView.swift */; };
 		60815D7D2D03571A006ADA9E /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60815D7C2D03571A006ADA9E /* InputView.swift */; };
+		6099017F2D0B373F00404250 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6099017E2D0B373F00404250 /* GoogleService-Info.plist */; };
+		609901822D0B45A000404250 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 609901812D0B45A000404250 /* FirebaseAuth */; };
+		609901842D0B45A000404250 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 609901832D0B45A000404250 /* FirebaseFirestore */; };
+		609901862D0B45A000404250 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 609901852D0B45A000404250 /* FirebaseStorage */; };
+		609901882D0B499800404250 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609901872D0B499800404250 /* AuthViewModel.swift */; };
+		6099018A2D0B49BB00404250 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609901892D0B49BB00404250 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,9 @@
 		60815D782D0348E4006ADA9E /* LoginAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LoginAssets.xcassets; sourceTree = "<group>"; };
 		60815D7A2D03496E006ADA9E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		60815D7C2D03571A006ADA9E /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		6099017E2D0B373F00404250 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		609901872D0B499800404250 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		609901892D0B49BB00404250 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				609901822D0B45A000404250 /* FirebaseAuth in Frameworks */,
+				609901842D0B45A000404250 /* FirebaseFirestore in Frameworks */,
+				609901862D0B45A000404250 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +118,7 @@
 		60815D722D03481B006ADA9E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6099017E2D0B373F00404250 /* GoogleService-Info.plist */,
 				60815D662D0347A6006ADA9E /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -135,6 +148,7 @@
 		60815D752D03485A006ADA9E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				609901872D0B499800404250 /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -150,6 +164,7 @@
 		60815D772D03485F006ADA9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				609901892D0B49BB00404250 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,6 +185,11 @@
 			dependencies = (
 			);
 			name = FirebaseAuthentication;
+			packageProductDependencies = (
+				609901812D0B45A000404250 /* FirebaseAuth */,
+				609901832D0B45A000404250 /* FirebaseFirestore */,
+				609901852D0B45A000404250 /* FirebaseStorage */,
+			);
 			productName = FirebaseAuthentication;
 			productReference = 60815D5F2D0347A4006ADA9E /* FirebaseAuthentication.app */;
 			productType = "com.apple.product-type.application";
@@ -198,6 +218,9 @@
 				Base,
 			);
 			mainGroup = 60815D562D0347A3006ADA9E;
+			packageReferences = (
+				609901802D0B459F00404250 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 60815D602D0347A4006ADA9E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -213,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60815D6A2D0347A6006ADA9E /* Preview Assets.xcassets in Resources */,
+				6099017F2D0B373F00404250 /* GoogleService-Info.plist in Resources */,
 				60815D792D0348E4006ADA9E /* LoginAssets.xcassets in Resources */,
 				60815D672D0347A6006ADA9E /* Assets.xcassets in Resources */,
 			);
@@ -228,6 +252,8 @@
 				603B4DF82D08A11A00476315 /* CreateAccountView.swift in Sources */,
 				603B4DF62D08A0AB00476315 /* CapsuleButtonStyle.swift in Sources */,
 				60815D7B2D03496E006ADA9E /* LoginView.swift in Sources */,
+				609901882D0B499800404250 /* AuthViewModel.swift in Sources */,
+				6099018A2D0B49BB00404250 /* User.swift in Sources */,
 				60815D7D2D03571A006ADA9E /* InputView.swift in Sources */,
 				60815D652D0347A4006ADA9E /* ContentView.swift in Sources */,
 				60815D632D0347A4006ADA9E /* FirebaseAuthenticationApp.swift in Sources */,
@@ -361,9 +387,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FirebaseAuthentication/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -378,6 +405,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.FirebaseAuthentication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -389,9 +417,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FirebaseAuthentication/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -406,6 +435,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.FirebaseAuthentication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -434,6 +464,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		609901802D0B459F00404250 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		609901812D0B45A000404250 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 609901802D0B459F00404250 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		609901832D0B45A000404250 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 609901802D0B459F00404250 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		609901852D0B45A000404250 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 609901802D0B459F00404250 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60815D572D0347A4006ADA9E /* Project object */;
 }
