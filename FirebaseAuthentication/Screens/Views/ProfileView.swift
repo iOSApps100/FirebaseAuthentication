@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            if let currentUser = authViewModel.currentUser {
+                Text(currentUser.fullName)
+            } else {
+                ProgressView("Please wait...")
+            }
+            Spacer()
+            
+            Button("Sign Out") {
+                authViewModel.signOut()
+            }
+
+        }
     }
 }
 

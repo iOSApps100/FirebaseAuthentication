@@ -5,7 +5,8 @@ struct LoginView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
-    @StateObject private var authViewModel = AuthViewModel()
+    // @StateObject private var authViewModel = AuthViewModel()
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
         NavigationStack {
@@ -132,6 +133,7 @@ struct LoginView: View {
         NavigationLink {
             // When using navigationLink you need to embed it in navigationStack then it will work. Later we will see better approach.
             CreateAccountView()
+                .environmentObject(authViewModel)
         } label: {
             HStack {
                 Text("Don't have an account?")

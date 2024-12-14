@@ -12,7 +12,17 @@ final class AuthViewModel: ObservableObject {
     private let firestore = Firestore.firestore()
     
     init() {
+        Task {
+            await loadCurrentUser()
+        }
+    }
+    
+    func loadCurrentUser() async {
         
+        if let user = auth.currentUser {
+            userSession = user
+            await fetchUser(by: user.uid)
+        }
     }
     
     func login(email: String, password: String) async {
@@ -23,7 +33,7 @@ final class AuthViewModel: ObservableObject {
             // that why we set userSession = authResult.user, right after signIn(withEmail: email, password: password)
             userSession = authResult.user
             await fetchUser(by: authResult.user.uid)
-            print(currentUser)
+            
         } catch {
             isError = true
         }
@@ -56,6 +66,17 @@ final class AuthViewModel: ObservableObject {
             let document = try await firestore.collection("users").document(uid).getDocument()
             currentUser = try document.data(as: User.self)
             
+        } catch {
+            isError = true
+        }
+    }
+    
+    func signOut() {
+        
+        do {
+            currentUser = nil
+            userSession = nil
+            try auth.signOut()
         } catch {
             isError = true
         }
