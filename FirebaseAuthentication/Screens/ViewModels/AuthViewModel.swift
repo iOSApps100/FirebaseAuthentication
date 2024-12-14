@@ -15,6 +15,20 @@ final class AuthViewModel: ObservableObject {
         
     }
     
+    func login(email: String, password: String) async {
+        
+        do {
+            let authResult = try await auth.signIn(withEmail: email, password: password)
+            // when user already logged in then show them to profile screen else show SignIn screen.
+            // that why we set userSession = authResult.user, right after signIn(withEmail: email, password: password)
+            userSession = authResult.user
+            await fetchUser(by: authResult.user.uid)
+            print(currentUser)
+        } catch {
+            isError = true
+        }
+    }
+    
     func createUser(email: String, fullName: String, password: String) async {
         do {
             // See for auth we are provided with email and password but we need to add extra information like fullName we will store this in Database check Firebase for reference.
@@ -34,5 +48,16 @@ final class AuthViewModel: ObservableObject {
             isError = true
         }
         
+    }
+    
+    func fetchUser(by uid: String) async {
+        
+        do {
+            let document = try await firestore.collection("users").document(uid).getDocument()
+            currentUser = try document.data(as: User.self)
+            
+        } catch {
+            isError = true
+        }
     }
 }
