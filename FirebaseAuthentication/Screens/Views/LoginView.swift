@@ -39,6 +39,7 @@ struct LoginView: View {
             .ignoresSafeArea()
             .padding(.horizontal)// will give default 16 padding from both the ends.
             .padding(.vertical, 8)// will give 8 padding form both the vertical ends.
+            .alert("Something went wrong.", isPresented: $authViewModel.isError) {}
             
         }
     }
