@@ -63,14 +63,15 @@ struct LoginView: View {
     private var forgotButton: some View {
         HStack {
             Spacer()
-            Button {
-                
+            NavigationLink {
+                ForgotPasswordView()
+                    .environmentObject(authViewModel)
             } label: {
                 Text("Forgot Password?")
                     .foregroundStyle(.gray)
                     .font(.subheadline)
                     .fontWeight(.medium)
-            }
+            }   
         }
     }
     
