@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var router: Router // will take value from main path 'FirebaseAuthenticationApp'
     
     var body: some View {
         

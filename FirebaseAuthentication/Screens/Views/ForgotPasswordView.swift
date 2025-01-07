@@ -6,6 +6,7 @@ struct ForgotPasswordView: View {
     @State private var email: String = ""
     @State private var isEmailSent = false
     @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var router: Router
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,7 +25,8 @@ struct ForgotPasswordView: View {
                 Task {
                     await authViewModel.resetPassword(by:email)
                     if !authViewModel.isError {
-                        isEmailSent = true
+                        //isEmailSent = true
+                        router.navigate(to: .emailSent) // better navigation approach
                     }
                 }
                 //
@@ -32,19 +34,16 @@ struct ForgotPasswordView: View {
                 Text("Send Instructions")
             }
             .buttonStyle(CapsuleButtonStyle())
-
+            
             
             Spacer()
             
         }
         .padding()
         .toolbarRole(.editor) // it is for remove back navigation title only it will show back icon.
-        .navigationDestination(isPresented: $isEmailSent) {
-            EmailSentView()
-        }
         .onAppear {
             // when coming back to this screen you need to empty this textfield.
-             email = ""
+            email = ""
         }
     }
 }

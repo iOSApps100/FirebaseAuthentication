@@ -10,6 +10,7 @@ import SwiftUI
 struct EmailSentView: View {
     
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var router: Router
     
     var body: some View {
         VStack(spacing: 24) {
@@ -31,7 +32,7 @@ struct EmailSentView: View {
             }
             
             Button {
-                
+                router.navigateToRoot()
             } label: {
                 Text("Skip, I'll confirm later.")
             }
@@ -40,7 +41,9 @@ struct EmailSentView: View {
             Spacer()
             
             Button {
-                dismiss() // See we come to this screen using navigationDestination(isPresented: ...) so this is the way to dismiss this screen. And one way to dismiss when is come from navigationLink() you need to do this @Environment(\.presentationMode) var presentationMode and presentationMode.wrappedValue.dismiss()
+               // dismiss() // See we come to this screen using navigationDestination(isPresented: ...) so this is the way to dismiss this screen. And one way to dismiss when is come from navigationLink() you need to do this @Environment(\.presentationMode) var presentationMode and presentationMode.wrappedValue.dismiss()
+                
+                router.navigateBack()
             } label: {
                 (Text("Did not receive the email? Check your spam filter, or ")
                     .foregroundColor(.gray) +

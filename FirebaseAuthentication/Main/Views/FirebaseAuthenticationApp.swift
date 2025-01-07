@@ -16,11 +16,28 @@ struct FirebaseAuthenticationApp: App {
     // it is property wrapper you can use to use UIKit's AppDelegate into SwiftUI. Register app delegate for firebase setup.
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var authViewModel = AuthViewModel()
+    @ObservedObject private var router = Router()
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(authViewModel)
+            
+            NavigationStack(path: $router.navPath) {
+                ContentView()
+                    .navigationDestination(for: Router.AuthFlow.self) { destination in
+                        
+                        switch destination {
+                            
+                        case .createAccount: CreateAccountView()
+                        case .emailSent: EmailSentView()
+                        case .forgotPassword: ForgotPasswordView()
+                        case .login: LoginView()
+                        case .profile: ProfileView()
+                                    
+                        }
+                    }
+            }
+            .environmentObject(authViewModel)
+            .environmentObject(router)// we are passing value from here.
         }
     }
 }

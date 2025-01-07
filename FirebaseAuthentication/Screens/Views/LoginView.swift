@@ -7,9 +7,10 @@ struct LoginView: View {
     @State private var password: String = ""
     // @StateObject private var authViewModel = AuthViewModel()
     @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var router: Router
     
     var body: some View {
-        NavigationStack {
+      //  NavigationStack { commenting this navigation stack because we made out custom one Router to manage navigation and inside that we are using navigationStack so earlier both navigationstack conflicts that why we commenting this one.
             ScrollView {
                 VStack(spacing: 16) {
                     // logo
@@ -41,7 +42,7 @@ struct LoginView: View {
             .padding(.vertical, 8)// will give 8 padding form both the vertical ends.
             .alert("Something went wrong.", isPresented: $authViewModel.isError) {}
             
-        }
+       // }
     }
     
     private var line: some View {
@@ -63,15 +64,25 @@ struct LoginView: View {
     private var forgotButton: some View {
         HStack {
             Spacer()
-            NavigationLink {
-                ForgotPasswordView()
-                    .environmentObject(authViewModel)
+            Button {
+                router.navigate(to: .forgotPassword)
             } label: {
                 Text("Forgot Password?")
                     .foregroundStyle(.gray)
                     .font(.subheadline)
                     .fontWeight(.medium)
-            }   
+            }
+
+            
+//            NavigationLink {
+//                ForgotPasswordView()
+//                    .environmentObject(authViewModel)
+//            } label: {
+//                Text("Forgot Password?")
+//                    .foregroundStyle(.gray)
+//                    .font(.subheadline)
+//                    .fontWeight(.medium)
+//            }   
         }
     }
     
@@ -132,19 +143,32 @@ struct LoginView: View {
     }
     
     private var fotterView: some View {
-        NavigationLink {
-            // When using navigationLink you need to embed it in navigationStack then it will work. Later we will see better approach.
-            CreateAccountView()
-                .environmentObject(authViewModel)
-        } label: {
+        
+        Button(action: {
+            router.navigate(to: .createAccount)
+        }, label: {
             HStack {
                 Text("Don't have an account?")
                     .foregroundStyle(.black)
                 Text("Sign Up")
                     .foregroundStyle(.teal)
             }
-        }
-        .fontWeight(.medium)
+            .fontWeight(.medium)
+        })
+        
+//        NavigationLink {
+//            // When using navigationLink you need to embed it in navigationStack then it will work. Later we will see better approach.
+//            CreateAccountView()
+//                .environmentObject(authViewModel)
+//        } label: {
+//            HStack {
+//                Text("Don't have an account?")
+//                    .foregroundStyle(.black)
+//                Text("Sign Up")
+//                    .foregroundStyle(.teal)
+//            }
+//        }
+      
     }
 }
 

@@ -15,6 +15,7 @@ struct CreateAccountView: View {
     // @StateObject private var authViewModel = AuthViewModel()
     @EnvironmentObject var authViewModel: AuthViewModel
     @Environment(\.presentationMode) var presentationMode // for pop view controller of createaccountview
+    @EnvironmentObject var router: Router
     
     var body: some View {
         VStack(spacing: 16) {
@@ -49,7 +50,8 @@ struct CreateAccountView: View {
                     await authViewModel.createUser(email: email, fullName: fullName, password: password)
                     
                     if !authViewModel.isError {
-                        presentationMode.wrappedValue.dismiss()
+                       // presentationMode.wrappedValue.dismiss()
+                        router.navigateBack()
                     }
                 }
             } label: {

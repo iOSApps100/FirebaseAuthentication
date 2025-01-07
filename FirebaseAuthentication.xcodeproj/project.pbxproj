@@ -12,6 +12,7 @@
 		603B4DF82D08A11A00476315 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603B4DF72D08A11A00476315 /* CreateAccountView.swift */; };
 		6058FC262D19438E002CC4C3 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6058FC252D19438E002CC4C3 /* ForgotPasswordView.swift */; };
 		6058FC282D19471D002CC4C3 /* EmailSentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6058FC272D19471D002CC4C3 /* EmailSentView.swift */; };
+		605F56A22D2D08E600035691 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605F56A12D2D08E600035691 /* Router.swift */; };
 		60815D632D0347A4006ADA9E /* FirebaseAuthenticationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60815D622D0347A4006ADA9E /* FirebaseAuthenticationApp.swift */; };
 		60815D652D0347A4006ADA9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60815D642D0347A4006ADA9E /* ContentView.swift */; };
 		60815D672D0347A6006ADA9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60815D662D0347A6006ADA9E /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		603B4DF72D08A11A00476315 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		6058FC252D19438E002CC4C3 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		6058FC272D19471D002CC4C3 /* EmailSentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSentView.swift; sourceTree = "<group>"; };
+		605F56A12D2D08E600035691 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		60815D5F2D0347A4006ADA9E /* FirebaseAuthentication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseAuthentication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60815D622D0347A4006ADA9E /* FirebaseAuthenticationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationApp.swift; sourceTree = "<group>"; };
 		60815D642D0347A4006ADA9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
+		605F56A02D2D08B900035691 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				605F56A12D2D08E600035691 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		60815D562D0347A3006ADA9E = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +97,7 @@
 		60815D612D0347A4006ADA9E /* FirebaseAuthentication */ = {
 			isa = PBXGroup;
 			children = (
+				605F56A02D2D08B900035691 /* Router */,
 				60815D732D03483A006ADA9E /* Screens */,
 				60815D702D0347EC006ADA9E /* Main */,
 				60815D722D03481B006ADA9E /* Resources */,
@@ -262,6 +273,7 @@
 				6018A7052D0D92BC00A7AB3E /* ProfileView.swift in Sources */,
 				603B4DF62D08A0AB00476315 /* CapsuleButtonStyle.swift in Sources */,
 				60815D7B2D03496E006ADA9E /* LoginView.swift in Sources */,
+				605F56A22D2D08E600035691 /* Router.swift in Sources */,
 				609901882D0B499800404250 /* AuthViewModel.swift in Sources */,
 				6099018A2D0B49BB00404250 /* User.swift in Sources */,
 				60815D7D2D03571A006ADA9E /* InputView.swift in Sources */,
